@@ -1,0 +1,58 @@
+{
+  "name": "@clarion-app/rss-torrents-frontend",
+  "version": "1.0.0",
+  "description": "Manages RSS feeds and retrieves torrents from them.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "author": "Tim Schwartz <tim@metaverse.systems>",
+  "license": "MIT",
+  "dependencies": {
+    "@clarion-app/types": "^1.6.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.1",
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6"
+  },
+  "customFields": {
+    "clarion": {
+      "api": [
+        "rssTorrentsApi"
+      ],
+      "routes": [
+        {
+          "path": "/clarion-app/rss-torrents/feeds",
+          "element": "<Feeds />"
+        },
+        {
+          "path": "/clarion-app/rss-torrents/series",
+          "element": "<Series />"
+        }
+      ],
+      "menu": {
+        "name": "RSS Torrents",
+        "entries": [
+          {
+            "name": "Feeds",
+            "path": "/clarion-app/rss-torrents/feeds"
+          },
+          {
+            "name": "Series",
+            "path": "/clarion-app/rss-torrents/series"
+          }
+        ],
+        "pinnedEntries": [
+          "Feeds",
+          "Series"
+        ]
+      }
+    }
+  }
+}
