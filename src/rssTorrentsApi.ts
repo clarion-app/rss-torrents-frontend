@@ -92,7 +92,7 @@ export const rssTorrentsApi = createApi({
     toggleSeriesSubscription: builder.mutation<{ message: string; series: Series }, string>({
       query: (id) => ({
         url: `/series/${id}/toggle-subscription`,
-        method: 'PATCH',
+        method: 'POST',
       }),
       invalidatesTags: (result, error, id) => [{ type: 'Series', id }, 'Series'],
     }),
