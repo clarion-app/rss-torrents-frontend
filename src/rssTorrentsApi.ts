@@ -1,5 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import baseQuery from './baseQuery';
+import { createBaseQuery } from '@clarion-app/frontend-base';
+import { backend } from './config';
 import { LaravelModelType } from '@clarion-app/types';
 
 export interface Episode extends LaravelModelType {
@@ -35,7 +36,7 @@ export interface SeriesFilters {
 
 export const rssTorrentsApi = createApi({
   reducerPath: 'clarion-app-rss-torrents-api',
-  baseQuery: baseQuery(),
+  baseQuery: createBaseQuery({ routePrefix: '/api/clarion-app/rss-torrents', backendConfig: backend }),
   tagTypes: ['Feeds', 'Torrents', 'Series'],
   endpoints: (builder) => ({
     getFeedUrls: builder.query<string[], void>({
